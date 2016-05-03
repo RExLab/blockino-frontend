@@ -11,8 +11,10 @@
         <!-- Materialize, Prettify, and Blockino CSS -->
         <link href="materialize/materialize.css" rel="stylesheet" media="screen,projection">
         <link rel="stylesheet" href="prettify/arduino.css">
-        <link href="blockino.css" rel="stylesheet" media="screen,projection">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.0.0/introjs.min.css" type="text/css" />
+        <link href="css/blockino.css" rel="stylesheet" media="screen,projection">
+        <link rel="stylesheet" href="css/shepherd-theme-arrows.css" /> 
+        <link rel="stylesheet" href="css/welcome.css" />
+
 
         <!-- Blockino - For now uncompressed files -->
         <!--script src="../blockly/blockly_compressed.js"></script-->
@@ -40,7 +42,6 @@
         <script src="../blockly/blocks/arduino/variables.js"></script>
         <script src="../blockly/blocks/arduino/LCD.js"></script>
         <script src="../blockly/blocks/arduino/DHT11.js"></script>
-
         <script src="../blockly/generators/arduino/io.js"></script>
         <script src="../blockly/generators/arduino/lists.js"></script>
         <script src="../blockly/generators/arduino/logic.js"></script>
@@ -58,8 +59,6 @@
         <script src="../blockly/generators/arduino/LCD.js"></script>
         <script src="../blockly/generators/arduino/DHT11.js"></script>
 
-
-
     </head>
 
     <body>
@@ -67,12 +66,14 @@
 
         <nav class="nav-fixed arduino_teal">
             <div class="nav-wrapper container">
-               
-                    <a class="button-collapse" href="#" data-activates="slide-out" id="button-collapse">
-                        <div data-step="3" data-intro="Aqui encontram-se alguns exemplos e algumas bibliotecas presentes no ambiente remoto. Basta adicionar a biblioteca e chamar as funções no seu código.">
-                            <i class="mdi-navigation-menu"></i>
-                        </div></a>
-                
+
+                <a class="button-collapse" href="#" data-activates="slide-out" id="button-collapse">
+                    <div class="menu-nav">
+                        <i class="mdi-navigation-menu"></i>
+                    </div>
+                </a>
+
+
                 <a id="logo-container" class="brand-logo">
                     <span class="app_title">block.ino</span>
                     <!-- Sketch name editable text field -->
@@ -92,12 +93,11 @@
             </div>
         </nav>
 
-
         <!-- Sidebar navigation -->
         <ul id="slide-out" class="side-nav" >
             <li class="no-padding logo"><img  src="img/sidenav-logo.png" alt="Block.ino"></li>
-          
-             
+
+
             <li class="no-padding">
                 <ul>
                     <li id="menu_delete"><a href="#">Excluir tudo<i class="mdi-action-delete left"></i></a></li>
@@ -143,9 +143,10 @@
             </li>
             <li class="no-padding">
                 <ul>
-                    <li id="button_tutorial"><a href="#">Tutorial<i class="material-icons left">&#xE887;</i></a></li>
+                    <li id="button_tutorial"><a href="#">Tutorial<i class="mdi-action-help left"></i></a></li>
                 </ul> 
             </li>
+
             <li class="no-padding side-menu-end">&nbsp;</li>
         </ul>
 
@@ -199,32 +200,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-panel white" style="padding: 0">
-                        <div id="blocks_panel" class="content" data-step="1" data-intro="O editor possui funcionalidades semelhantes às da IDE original do Arduino.">
+                    <div class="card-panel codeeditor white" style="padding: 0">
+                        <div id="blocks_panel" class="content">
                             <div id="content_blocks" class="content z-depth-1"></div>
                         </div>
                     </div>
                 </div>
-
+  
 
                 <div class="col s12 m12 l4" id="debugDiv" style="display: none">
                     <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header active">
+                            <div class="collapsible-header active" id="streaming_collapsible_header">
                                 <span class="collapsible_logo"></span><i class="material-icons">videocam</i><span id="livestreaming">Live Streaming</span>
                             </div>
                             <div class="collapsible-body" style="position:relative">
                                 <center>
-                                    <img class="materialboxed" width="100%" src="">
+                                    <img class="materialboxed" width="100%" src="img/streaming.png">
                                 </center>
                                 <a class="btn-floating btn-large waves-effect waves-light arduino_teal_light z-depth-1-half" id="restart_arduino"><i class="mdi-av-replay"></i></a>
-
                             </div>
                         </li>
                     </ul>
                     <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header">
+                            <div class="collapsible-header" id="terminal_collapsible_header">
                                 <span class="collapsible_logo"></span><i class="material-icons">usb</i><span id="serialmonitor">Serial Monitor</span> 
                             </div>
                             <div class="collapsible-body" style="position:relative" id="serial_collapsible_body">
@@ -275,7 +275,7 @@
                 <div class="col s12 m12 l4" id="codeDiv">
                     <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header active">
+                            <div class="collapsible-header active" id="source_code_collapsible_header">
                                 <span class="collapsible_logo">{ }</span><span id="sourcecode">Código fonte</span>
                             </div>
                             <div class="collapsible-body">
@@ -283,7 +283,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">
+                            <div class="collapsible-header" id="diagram_collapsible_header">
                                 <i class="material-icons">developer_board</i><span id="protoboarddiagram">Diagrama</span>
                             </div>
                             <div class="collapsible-body">
@@ -368,17 +368,17 @@
         <script src="js_libs/diff.js"></script>
         <script src="prettify/prettify.js"></script>
         <!-- Blockino app -->
-
         <script src="blockinoserver_ws.js"></script>
-
         <script src="blockino_toolbox.js"></script>
         <!--<script src="blockinoserver_ajax.js"></script>-->
         <script src="blockino_design.js"></script>
         <script src="blockino_blockly.js"></script>
         <script src="blockino.js"></script>
         <script src="js_libs/zoom.js"></script>
+        <script src="js_libs/tether.js"></script>
+        <script src="js_libs/shepherd.js"></script>
 
-        <script src='https://cdn.jsdelivr.net/intro.js/2.0.0/intro.min.js'></script>
+        <script src="js_libs/welcome.js"></script>
 
         <script>
             (function (i, s, o, g, r, a, m) {

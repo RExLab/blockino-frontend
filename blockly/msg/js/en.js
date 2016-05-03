@@ -502,3 +502,23 @@ Blockly.Msg.upload_success= "Done uploading.";
 Blockly.Msg.compile_success= "Done compiling";
 Blockly.Msg.error_conclusion= "Unable to perform this action on the remote IDE";
 Blockly.Msg.warningWrongType = 'The variable  %vName has been first assigned to the type "%vType" and this block needs it to be set to the type "%bType" !';
+Blockly.Msg.shep_editor = 'The code editor consists of a toolbox, where you select the blocks, and a workspace where you drag the blocks';
+Blockly.Msg.shep_thrash = 'There is a trash can to delete the blocks dragged to it';
+Blockly.Msg.shep_categories = 'The toolbox holds all the available blocks organized in categories';
+/*
+Blockly.Msg.shep_filename = "Rename the file to download your code later on";
+Blockly.Msg.shep_navbarmenu = "You may also start this tour again and access some docs";
+*/
+Blockly.Msg.shep_navbar = 'Rename the file to download your code later on. You may also start this tour again and access some docs.';
+Blockly.Msg.shep_menu = 'Here are some code examples and translation, and other useful functions';
+Blockly.Msg.shep_code = 'The source code in Arduino language is automatically generated here';
+Blockly.Msg.shep_diagram = 'This is the circuit available remotely. It is useful for identifying sensors and pins that will be used during the development of your program';
+Blockly.Msg.shep_buttons = 'Use the red button to compile your code and the blue button to run the program';
+Blockly.Msg.shep_debug_video = "You can see what is happening right now through this video streaming";
+Blockly.Msg.shep_debug_serial = "If you use serial communication functions in your code, you will be able to exchange information with the Arduino board using this terminal";
+Blockly.Msg.shep_output = "After compiling or sending your code, a feedback will appear here indicating whether these actions were successfully carried out or not";
+Blockly.Msg.exit = "Exit";  
+Blockly.Msg.back = "Back";
+Blockly.Msg.next = "Next";
+Blockly.Msg.done = "Done";
+   
