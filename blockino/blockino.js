@@ -13,6 +13,8 @@ var Blockino = Blockino || {};
 
 Blockino.toolbox_names = [];
 
+Blockino.shepherd = null;
+
 /** Initialize function for Blockino on page load. */
 window.addEventListener('load', function load(event) {
     window.removeEventListener('load', load, false);
@@ -25,9 +27,10 @@ window.addEventListener('load', function load(event) {
     Blockino.largeIdeButtonSpinner(true);
     BlockinoServer.initServerComm();
     BlockinoServer.browserDetection();
+    Blockino.shepherd = Blockino.setupShepherd();
 });
 
-Blockino.errorHandler = function(response){
+Blockino.errorHandler = function (response) {
     console.log(response);
 };
 
@@ -94,32 +97,23 @@ Blockino.bindActionFunctions = function () {
         Blockino.changeLanguage('es');
         $('.button-collapse').sideNav('hide');
     });
-    
-   Blockino.bindClick_('button_tutorial', function () {
-            $('.button-collapse').sideNav('hide');
-            Blockino.startTour();
+
+    Blockino.bindClick_('button_tutorial', function () {
+        $('.button-collapse').sideNav('hide');
+        Blockino.startTour();
     });
-
-
+    Blockino.bindClick_('button_tour', function () {
+        $('.button-collapse').sideNav('hide');
+        Blockino.startTour();
+    });
 
 };
 
-Blockino.startTour = function(){
-       
-        var tour = introJs();
-       
-        tour.oncomplete(function () {
-        });
-        tour.onexit(function () {
-        });
-        tour.setOption('tooltipPosition', 'auto');
-        tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top']);
-        tour.setOption("skipLabel", 'leave');
-        tour.setOption("prevLabel", 'previous');
-        tour.setOption("nextLabel", 'next');
-        tour.setOption("doneLabel", 'done');
-        tour.start();
-  
+Blockino.startTour = function () {
+   if(Blockino.shepherd != null){
+       Blockino.shepherd.start();
+   }
+
 };
 
 Blockino.changeLanguage = function (lang) {
@@ -130,7 +124,6 @@ Blockino.changeLanguage = function (lang) {
         Blockino.sketchNameSizeEffect();
         Blockino.loadToolboxNames();
     });
-
 };
 
 Blockino.loadToolboxNames = function () {

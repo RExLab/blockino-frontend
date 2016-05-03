@@ -318,6 +318,8 @@ Blockino.setHtmlLang = function () {
     $("#serialmonitor").html(Blockly.Msg.serialmonitor);
     $("#livestreaming").html(Blockly.Msg.livestreaming);
     $("#ideoutput").html(Blockly.Msg.outputIDEArduino);
+    $("#button_tour").html(Blockly.Msg.tour + '<i class="material-icons left">present_to_all</i>');
+    $("#button_docs").html(Blockly.Msg.docs + '<i class="material-icons left">description</i>');    
 
 }
 

@@ -946,8 +946,9 @@ ul.side-nav li ul li ul li {
 
 .zoom img::selection { background-color: #fff; }
 
-.introjs-helperNumberLayer{
-    width:25px !important;
-    height:25px !important;
-}
 
+@media only screen and (min-width : 1000px) {
+    nav .brand-logo {
+        left:25%;
+    }
+}

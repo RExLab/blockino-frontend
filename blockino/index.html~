@@ -2,22 +2,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no"">
+
         <meta name="theme-color" content="#00878F">
         <link rel="icon" href="img/favicon.png">
         <title>block.ino</title>
 
-        <!-- Materialize, Prettify, and Ardublockly CSS -->
+        <!-- Materialize, Prettify, and Blockino CSS -->
         <link href="materialize/materialize.css" rel="stylesheet" media="screen,projection">
         <link rel="stylesheet" href="prettify/arduino.css">
-        <link href="ardublockly.css" rel="stylesheet" media="screen,projection">
+        <link href="css/blockino.css" rel="stylesheet" media="screen,projection">
+        <link rel="stylesheet" href="css/shepherd-theme-arrows.css" /> 
+        <link rel="stylesheet" href="css/welcome.css" />
 
-        <link href="materialize/googleapisMaterialIcons.css" rel="stylesheet">
 
-        <!-- Ardublockly - For now uncompressed files -->
+        <!-- Blockino - For now uncompressed files -->
         <!--script src="../blockly/blockly_compressed.js"></script-->
         <script src="../blockly/blockly_uncompressed.js"></script>
         <!--script src="../blockly/blocks_compressed.js"></script-->
+        <script src="../blockly/msg/js/pt-br.js"></script>
         <script src="../blockly/generators/arduino.js"></script>
         <script src="../blockly/generators/arduino/boards.js"></script>
         <script src="../blockly/blocks/logic.js"></script>
@@ -39,7 +42,6 @@
         <script src="../blockly/blocks/arduino/variables.js"></script>
         <script src="../blockly/blocks/arduino/LCD.js"></script>
         <script src="../blockly/blocks/arduino/DHT11.js"></script>
-
         <script src="../blockly/generators/arduino/io.js"></script>
         <script src="../blockly/generators/arduino/lists.js"></script>
         <script src="../blockly/generators/arduino/logic.js"></script>
@@ -56,16 +58,22 @@
         <script src="../blockly/generators/arduino/variables.js"></script>
         <script src="../blockly/generators/arduino/LCD.js"></script>
         <script src="../blockly/generators/arduino/DHT11.js"></script>
-        <script src="../blockly/msg/js/pt-br.js"></script>
 
-        
     </head>
 
     <body>
         <!-- Horizontal Navigation bar -->
+
         <nav class="nav-fixed arduino_teal">
             <div class="nav-wrapper container">
-                <a class="button-collapse" href="#" data-activates="slide-out" id="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+                <a class="button-collapse" href="#" data-activates="slide-out" id="button-collapse">
+                    <div class="menu-nav">
+                        <i class="mdi-navigation-menu"></i>
+                    </div>
+                </a>
+
+
                 <a id="logo-container" class="brand-logo">
                     <span class="app_title">block.ino</span>
                     <!-- Sketch name editable text field -->
@@ -79,30 +87,22 @@
 
                 <!-- Horizontal Navbar links only shown on large resolutions -->
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-
-                    <!--<li><a href="#" id="button_load">Open<i class="mdi-file-file-upload left"></i></a></li>
-                    <li><a href="#" id="button_save">Save .xml<i class="mdi-file-file-download left"></i></a></li>
-                    <li><a href="#" id="button_save_sketch">Save .ino<i class="mdi-file-file-download left"></i></a></li>
-                    <li><a href="#" id="button_language">Language<i class="mdi-action-language left"></i></a></li>
-                    <li><a href="#" id="button_delete">Delete All<i class="mdi-action-delete left"></i></a></li>-->
-
+                    <li><a href="#" id="button_tour">Tour<i class="material-icons left">present_to_all</i></a></li>
+                    <li><a href="#" id="button_docs">Docs<i class="material-icons left">description</i></a></li>
                 </ul>
+                
 
             </div>
         </nav>
 
         <!-- Sidebar navigation -->
         <ul id="slide-out" class="side-nav" >
-            <li class="logo"><img  src="img/sidenav-logo.png" alt="Block.ino"></li>
+            <li class="no-padding logo"><img  src="img/sidenav-logo.png" alt="Block.ino"></li>
+
+
             <li class="no-padding">
                 <ul>
-
-                    <li id="menu_load"><a href="#">Abrir<i class="mdi-file-file-upload left"></i></a></li>
-                    <li id="menu_save"><a href="#">Salvar .xml<i class="mdi-file-file-download left"></i></a></li>
-                    <li id="button_save_sketch"><a href="#" >Save .ino<i class="mdi-file-file-download left"></i></a></li>
                     <li id="menu_delete"><a href="#">Excluir tudo<i class="mdi-action-delete left"></i></a></li>
-
                 </ul> 
             </li>
             <li class="no-padding">
@@ -118,6 +118,18 @@
                         </div>
                     </li>
                     <li>
+                        <div class="collapsible-header" id="menu_files">Arquivos <i class="material-icons">folder</i><i class="mdi-navigation-arrow-drop-down right"></i></div>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li id="menu_load"><a href="#">Abrir<i class="mdi-file-file-upload left"></i></a></li>
+                                <li id="menu_save"><a href="#">Salvar blocos<i class="mdi-file-file-download left"></i></a></li>
+                                <li id="button_save_sketch"><a href="#">Save .ino<i class="mdi-file-file-download left"></i></a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
                         <div class="collapsible-header" id="example">Exemplos <i class="material-icons left">code</i> <i class="mdi-navigation-arrow-drop-down right"></i></div>
                         <div class="collapsible-body">
                             <ul>
@@ -131,6 +143,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="no-padding">
+                <ul>
+                    <li id="button_tutorial"><a href="#">Tutorial<i class="mdi-action-help left"></i></a></li>
+                </ul> 
+            </li>
+
             <li class="no-padding side-menu-end">&nbsp;</li>
         </ul>
 
@@ -184,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-panel white" style="padding: 0">
+                    <div class="card-panel codeeditor white" style="padding: 0">
                         <div id="blocks_panel" class="content">
                             <div id="content_blocks" class="content z-depth-1"></div>
                         </div>
@@ -195,32 +213,39 @@
                 <div class="col s12 m12 l4" id="debugDiv" style="display: none">
                     <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header active">
+                            <div class="collapsible-header active" id="streaming_collapsible_header">
                                 <span class="collapsible_logo"></span><i class="material-icons">videocam</i><span id="livestreaming">Live Streaming</span>
                             </div>
                             <div class="collapsible-body" style="position:relative">
                                 <center>
-                                    <img class="materialboxed" width="100%" src="">
+                                    <img class="materialboxed" width="100%" src="img/streaming.png">
                                 </center>
                                 <a class="btn-floating btn-large waves-effect waves-light arduino_teal_light z-depth-1-half" id="restart_arduino"><i class="mdi-av-replay"></i></a>
-
                             </div>
                         </li>
+                    </ul>
+                    <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header">
+                            <div class="collapsible-header" id="terminal_collapsible_header">
                                 <span class="collapsible_logo"></span><i class="material-icons">usb</i><span id="serialmonitor">Serial Monitor</span> 
                             </div>
                             <div class="collapsible-body" style="position:relative" id="serial_collapsible_body">
-                                <div class="row" style="margin:5px;">
-                                    <div class="col s6">
+                                <div class="row">
+                                    <div class="col s5">
                                         <div class="input-field">
                                             <input placeholder="Enter para enviar " id="command_serial" type="text" >
-                                            <label for="command_serial">Comandos</label>
+                                            <label class='serial' for="command_serial">Comandos</label>
                                         </div>
                                     </div>
-                                    <div class="col s6">
+                                    <div class="col s3">
                                         <div class="input-field">
-
+                                            <label class="active serial">Fim da linha</label>
+                                            <input type="checkbox" id="newline" checked="checked"/>
+                                            <label for="newline">  </label>
+                                        </div>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="input-field">
                                             <select id="baudrate">
                                                 <option value="300">300 baud</option> 
                                                 <option value="1200">1200 baud</option> 
@@ -234,11 +259,13 @@
                                                 <option value="57600">57600 baud</option> 
                                                 <option value="115200">115200 baud</option>
                                             </select>
-                                            <label>Baudrate</label>
+                                            <label class='serial' for="baudrate">Baudrate</label>
+
                                         </div>
                                     </div>
+
                                 </div> 
-                                
+
                                 <div id="return_serial" style="height: 250px; overflow-y: scroll;background-color: #FFF; padding: 5px;">
                                     <pre></pre>
                                     <a class="btn-floating btn-large waves-effect waves-light arduino_teal_light z-depth-1-half" id="clear_serial_return"><i class="mdi-content-clear"></i></a>
@@ -250,7 +277,7 @@
                 <div class="col s12 m12 l4" id="codeDiv">
                     <ul class="collapsible z-depth-1" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header active">
+                            <div class="collapsible-header active" id="source_code_collapsible_header">
                                 <span class="collapsible_logo">{ }</span><span id="sourcecode">Código fonte</span>
                             </div>
                             <div class="collapsible-body">
@@ -258,16 +285,18 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">
+                            <div class="collapsible-header" id="diagram_collapsible_header">
                                 <i class="material-icons">developer_board</i><span id="protoboarddiagram">Diagrama</span>
                             </div>
                             <div class="collapsible-body">
                                 <center>
-                                    <img class="materialboxed" width="100%" src="img/diagrama.png">
+                                    <span class='zoom' id='img-zoomed'>
+                                        <img src="img/diagrama.png" width='100%' alt=''/>
+                                    </span>
                                 </center>
                             </div>
                         </li>
-                        <li>
+                        <li style="display: none">
                             <div class="collapsible-header" id="xml_collapsible_header">
                                 <i class="material-icons">code</i> <span id="xmlblocks">Blocos XML</span>
                             </div>
@@ -324,8 +353,7 @@
         <div id="not_running_dialog" class="modal">
             <div class="modal-content">
                 <h4 id="gen_alert_title">Servidor Block.ino não está respondendo corretamente</h4>
-                <p> Ardublockly to work correctly, the Ardublockly server must be
-                    running locally on your computer.</p>
+                <p> </p>
 
             </div>
             <div>
@@ -333,8 +361,6 @@
             </div>
         </div>
 
-        <!-- Desktop version of Ardublockly JS, needs to be loaded first. -->
-        <script src="ardublockly_desktop.js"></script>
         <!-- jQuery and Materialize JS -->
         <script src="js_libs/jquery-2.1.3.min.js"></script>
         <script src="materialize/materialize.js"></script>
@@ -343,12 +369,36 @@
         <!-- JS Diff -->
         <script src="js_libs/diff.js"></script>
         <script src="prettify/prettify.js"></script>
-        <!-- Ardublockly app -->
+        <!-- Blockino app -->
         <script src="blockinoserver_ws.js"></script>
+        <script src="blockino_toolbox.js"></script>
+        <!--<script src="blockinoserver_ajax.js"></script>-->
+        <script src="blockino_design.js"></script>
+        <script src="blockino_blockly.js"></script>
+        <script src="blockino.js"></script>
+        <script src="js_libs/zoom.js"></script>
+        <script src="js_libs/tether.js"></script>
+        <script src="js_libs/shepherd.js"></script>
 
-        <!--<script src="ardublocklyserver_ajax.js"></script>-->
-        <script src="ardublockly_design.js"></script>
-        <script src="ardublockly_blockly.js"></script>
-        <script src="ardublockly.js"></script>
+        <script src="js_libs/welcome.js"></script>
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-74633642-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+
     </body>
 </html>
