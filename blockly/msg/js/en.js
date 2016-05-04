@@ -521,7 +521,5 @@ Blockly.Msg.exit = "Exit";
 Blockly.Msg.back = "Back";
 Blockly.Msg.next = "Next";
 Blockly.Msg.done = "Done";
-   
-   
 Blockly.Msg.tour = "Tour";
 Blockly.Msg.docs = "Documents"

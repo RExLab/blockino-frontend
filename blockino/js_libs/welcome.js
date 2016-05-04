@@ -203,7 +203,8 @@ Blockino.setupShepherd = function () {
                 classes: 'shepherd-button-secondary',
                 action: function () {
                     shepherd.back();
-                    $('#debugDiv').hide();
+                    if(!BlockinoServer.myturn)
+                        $('#debugDiv').hide();
                     Blockino.showExtraIdeButtons(true);
                 }
             }, {
@@ -236,7 +237,8 @@ Blockino.setupShepherd = function () {
                     $('#ide_output_collapsible_header').click();
                     $('#terminal_collapsible_header').click();
                     shepherd.next();
-                    $('#debugDiv').hide();
+                    if(!BlockinoServer.myturn)
+                        $('#debugDiv').hide();
 
                 }
             }
@@ -268,10 +270,10 @@ Blockino.setupShepherd = function () {
         ]
     });
     shepherd.on('cancel', function () {
-        //TODO is the user in his turn?
-        $('#debugDiv').hide();
+        if(!BlockinoServer.myturn)
+            $('#debugDiv').hide();
     });
 
-    return shepherd;
+    Blockino.shepherd = shepherd;
 };
 

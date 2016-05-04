@@ -27,7 +27,7 @@ window.addEventListener('load', function load(event) {
     Blockino.largeIdeButtonSpinner(true);
     BlockinoServer.initServerComm();
     BlockinoServer.browserDetection();
-    Blockino.shepherd = Blockino.setupShepherd();
+    
 });
 
 Blockino.errorHandler = function (response) {
@@ -106,6 +106,7 @@ Blockino.bindActionFunctions = function () {
         $('.button-collapse').sideNav('hide');
         Blockino.startTour();
     });
+    
 
 };
 
