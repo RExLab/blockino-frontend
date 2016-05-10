@@ -550,3 +550,4 @@ Blockly.Msg.next = "Próximo";
 Blockly.Msg.done = "Pronto";
 Blockly.Msg.tour = "Guia";
 Blockly.Msg.docs = "Documentos";
+    

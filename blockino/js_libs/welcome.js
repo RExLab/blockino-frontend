@@ -1,7 +1,7 @@
 'use strict';
 
-        /** Create a namespace for the application. */
-        var Blockino = Blockino || {};
+/** Create a namespace for the application. */
+var Blockino = Blockino || {};
 
 var Blockino = Blockino || {};
 
@@ -35,9 +35,9 @@ Blockino.setupShepherd = function () {
         ]
     });
 
-    shepherd.addStep('shep_thrash', {
-        text: [Blockly.Msg.shep_thrash],
-        attachTo: '.blocklyTrash top',
+    shepherd.addStep('shep_categories', {
+        text: [Blockly.Msg.shep_categories],
+        attachTo: '.blocklyToolboxDiv right',
         classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
         buttons: [
             {
@@ -56,11 +56,9 @@ Blockino.setupShepherd = function () {
         ]
     });
 
-
-
-    shepherd.addStep('shep_categories', {
-        text: [Blockly.Msg.shep_categories],
-        attachTo: '.blocklyToolboxDiv right',
+    shepherd.addStep('shep_thrash', {
+        text: [Blockly.Msg.shep_thrash],
+        attachTo: '.blocklyTrash top',
         classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
         buttons: [
             {
@@ -203,7 +201,7 @@ Blockino.setupShepherd = function () {
                 classes: 'shepherd-button-secondary',
                 action: function () {
                     shepherd.back();
-                    if(!BlockinoServer.myturn)
+                    if (!BlockinoServer.myturn)
                         $('#debugDiv').hide();
                     Blockino.showExtraIdeButtons(true);
                 }
@@ -237,7 +235,7 @@ Blockino.setupShepherd = function () {
                     $('#ide_output_collapsible_header').click();
                     $('#terminal_collapsible_header').click();
                     shepherd.next();
-                    if(!BlockinoServer.myturn)
+                    if (!BlockinoServer.myturn)
                         $('#debugDiv').hide();
 
                 }
@@ -270,7 +268,7 @@ Blockino.setupShepherd = function () {
         ]
     });
     shepherd.on('cancel', function () {
-        if(!BlockinoServer.myturn)
+        if (!BlockinoServer.myturn)
             $('#debugDiv').hide();
     });
 
