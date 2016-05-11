@@ -65,7 +65,7 @@ Blockino.injectBlockly = function (blocklyEl, toolboxPath) {
         collapse: true,
         comments: true,
         disable: true,
-        media: '../blockly/media/',
+        media: 'blockly/media/',
         rtl: false,
         scrollbars: true,
         toolbox: Blockino.toolbox_string,

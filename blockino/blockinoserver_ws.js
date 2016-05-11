@@ -8,7 +8,7 @@
 
 /** Create a name space for the application. */
 var BlockinoServer = {};
-var addr = 'http://' + window.location.hostname+":"+ window.location.port;
+var addr = 'http://relle.ufsc.br:8110' ;
 
 BlockinoServer.myturn = false;
 

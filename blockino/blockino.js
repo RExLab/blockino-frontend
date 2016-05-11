@@ -55,23 +55,23 @@ Blockino.bindActionFunctions = function () {
     });
 
     Blockino.bindClick_('menu_example_1', function () {
-        Blockino.loadServerXmlFile('../examples/blink.js');
+        Blockino.loadServerXmlFile('examples/blink.js');
         $('.button-collapse').sideNav('hide');
     });
     Blockino.bindClick_('menu_example_2', function () {
-        Blockino.loadServerXmlFile('../examples/serial_print_ascii_.js');
+        Blockino.loadServerXmlFile('examples/serial_print_ascii_.js');
         $('.button-collapse').sideNav('hide');
     });
     Blockino.bindClick_('menu_example_3', function () {
-        Blockino.loadServerXmlFile('../examples/serial_repeat_game.js');
+        Blockino.loadServerXmlFile('examples/serial_repeat_game.js');
         $('.button-collapse').sideNav('hide');
     });
     Blockino.bindClick_('menu_example_4', function () {
-        Blockino.loadServerXmlFile('../examples/servo_knob.js');
+        Blockino.loadServerXmlFile('examples/servo_knob.js');
         $('.button-collapse').sideNav('hide');
     });
     Blockino.bindClick_('menu_example_5', function () {
-        Blockino.loadServerXmlFile('../examples/hall.js');
+        Blockino.loadServerXmlFile('examples/hall.js');
         $('.button-collapse').sideNav('hide');
     });
 
@@ -119,7 +119,7 @@ Blockino.startTour = function () {
 
 Blockino.changeLanguage = function (lang) {
     Blockly.Msg = [];
-    $.getScript('../blockly/msg/js/' + lang + '.js', function () {
+    $.getScript('blockly/msg/js/' + lang + '.js', function () {
         console.log(lang + ' loaded');
         Blockino.setHtmlLang();
         Blockino.sketchNameSizeEffect();
