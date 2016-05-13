@@ -3,7 +3,7 @@
 var Blockino = Blockino || {};
 
 
-Blockino.examples['../examples/serial_repeat_game.js'] = '<xml xmlns="http://www.w3.org/1999/xhtml">' + 
+Blockino.examples['examples/serial_repeat_game.js'] = '<xml xmlns="http://www.w3.org/1999/xhtml">' + 
  '  <block type="procedures_callnoreturn" id="1" x="36" y="90">' + 
  '    <mutation name="play game"></mutation>' + 
  '    <next>' + 

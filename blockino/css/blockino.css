@@ -952,3 +952,7 @@ ul.side-nav li ul li ul li {
         left:25%;
     }
 }
+
+.side-nav .button_docs i{
+    margin-top: 18px;
+}

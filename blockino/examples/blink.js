@@ -2,7 +2,7 @@
 
 var Blockino = Blockino || {};
 
- Blockino.examples['../examples/blink.js'] =
+ Blockino.examples['examples/blink.js'] =
  ' <xml xmlns="http://www.w3.org/1999/xhtml">' + 
  '  <block type="io_digitalwrite" id="423" x="70" y="75">' + 
  '    <field name="PIN">2</field>' + 

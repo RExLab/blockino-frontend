@@ -8,7 +8,7 @@
 
 /** Create a name space for the application. */
 var BlockinoServer = {};
-var addr = 'http://relle.ufsc.br:8110' ;
+var addr = 'http://arduino2.relle.ufsc.br' ;
 
 BlockinoServer.myturn = false;
 

@@ -2,7 +2,7 @@
 
 var Blockino = Blockino || {};
 
-Blockino.examples['../examples/serial_print_ascii_.js']='<xml>' + 
+Blockino.examples['examples/serial_print_ascii_.js']='<xml>' + 
  '  <block type="serial_setup" id="9" x="314" y="68">' + 
  '    <field name="SERIAL_ID">Serial</field>' + 
  '    <field name="SPEED">9600</field>' + 

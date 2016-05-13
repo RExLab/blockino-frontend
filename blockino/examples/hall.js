@@ -2,7 +2,7 @@
 
 var Blockino = Blockino || {};
 
-Blockino.examples['../examples/hall.js'] =  '<xml xmlns="http://www.w3.org/1999/xhtml">' + 
+Blockino.examples['examples/hall.js'] =  '<xml xmlns="http://www.w3.org/1999/xhtml">' + 
  '  <block type="arduino_functions" id="509" x="43" y="93">' + 
  '    <statement name="SETUP_FUNC">' + 
  '      <block type="variables_set" id="234">' + 
