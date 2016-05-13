@@ -267,9 +267,15 @@ Blockino.setupShepherd = function () {
             }
         ]
     });
+    
     shepherd.on('cancel', function () {
         if (!BlockinoServer.myturn)
             $('#debugDiv').hide();
+    });
+    
+    shepherd.on('start', function () {
+        if (!BlockinoServer.myturn)
+            $('#debugDiv img').attr('src','img/streaming.png');
     });
 
     Blockino.shepherd = shepherd;
